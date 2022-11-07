@@ -7,6 +7,6 @@ type of problems.
 
 ## Implementations
 - [ ] C
-- [ ] Python
+- [x] Python
 - [ ] Haskell
 - [ ] Prolog (ciao-prolog)

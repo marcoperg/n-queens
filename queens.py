@@ -43,13 +43,25 @@ def n_queens(n):
 
 
 if __name__ == '__main__':
-    if len(sys.argv) != 2:
-        print("Please specify n with program args.");
+    if (len(sys.argv) < 2):
+        print("Usage: program [-v] n")
         exit(1)
 
-    gen = n_queens(int(sys.argv[1]))
+    verbose = False
+    if (sys.argv[1] == '-v'):
+        verbose = True
+        pos_n = 2
+    else:
+        pos_n = 1
+
+    if len(sys.argv) != pos_n + 1:
+        print("Usage: program [-v] n")
+        exit(1)
+
+    gen = n_queens(int(sys.argv[pos_n]))
     leng = 0
     for i in tqdm(iter(gen)):
-        print_board(i)
+        if verbose:
+            print_board(i)
         leng += 1
     print(leng)

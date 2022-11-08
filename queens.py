@@ -1,8 +1,6 @@
 #!/opt/homebrew/Caskroom/miniconda/base/bin/python
 
 import sys
-from tqdm import tqdm
-
 
 def print_board(board):
     for row in board:
@@ -60,7 +58,7 @@ if __name__ == '__main__':
 
     gen = n_queens(int(sys.argv[pos_n]))
     leng = 0
-    for i in tqdm(iter(gen)):
+    for i in iter(gen):
         if verbose:
             print_board(i)
         leng += 1

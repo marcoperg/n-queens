@@ -6,7 +6,7 @@ objective is to compare the speed of different languages when it comes to this
 type of problems. 
 
 ## Implementations
-- [ ] C
+- [X] C
 - [x] Python
 - [ ] Haskell
 - [ ] Prolog (ciao-prolog)

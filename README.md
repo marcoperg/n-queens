@@ -8,5 +8,5 @@ type of problems.
 ## Implementations
 - [X] C
 - [x] Python
-- [ ] Haskell
+- [x] Haskell
 - [ ] Prolog (ciao-prolog)

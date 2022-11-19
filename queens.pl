@@ -26,5 +26,5 @@ check_is_attacked(QueenRow, QueenCol, OtherQueenRow, [OtherQueenCol | XS]) :-
                                 Q1 is OtherQueenRow + 1,
                                 check_is_attacked(QueenRow, QueenCol, Q1, XS).
 
-check_ints(N, [X | XS], I) :- integer(X), X>=0, X<N, I1 is I-1, check_ints(N, XS, I1).
 check_ints(N, [X], 1) :- integer(X), X>=0, X<N.
+check_ints(N, [X | XS], I) :- integer(X), X>=0, X<N, I1 is I-1, check_ints(N, XS, I1).

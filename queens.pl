@@ -1,6 +1,6 @@
 :- module(queens, _, _).
 
-queens(N, L) :- integer(N), check_ints(N, L), check_queens(L, 0, L).
+queens(N, L) :- integer(N), check_ints(N, L, N), check_queens(L, 0, L).
 
 check_queens(_, _, []).
 check_queens(L, QueenRow, [QueenCol | XS]) :- 
@@ -26,6 +26,5 @@ check_is_attacked(QueenRow, QueenCol, OtherQueenRow, [OtherQueenCol | XS]) :-
                                 Q1 is OtherQueenRow + 1,
                                 check_is_attacked(QueenRow, QueenCol, Q1, XS).
 
-check_ints(0, []).
-check_ints(1, [X]) :- integer(X), X>=0, X<1.
-check_ints(N, [X | XS]) :- integer(X), X>=0, X<N, N1 is N-1, check_ints(N1, XS).
+check_ints(N, [X | XS], I) :- integer(X), X>=0, X<N, I1 is I-1, check_ints(N, XS, I1).
+check_ints(N, [X], 1) :- integer(X), X>=0, X<N.

@@ -17,21 +17,13 @@ check_is_attacked(_, _, _, []).
 check_is_attacked(QueenRow, QueenCol, OtherQueenRow, [OtherQueenCol | XS]) :-
                                 QueenRow =\= OtherQueenRow,
                                 OtherQueenCol  =\= QueenCol, 
-                                LP1 is OtherQueenRow - OtherQueenCol,
-                                LP2 is QueenRow - QueenCol,
-                                LP1 =\= LP2,
-                                LS1 is OtherQueenRow + OtherQueenCol,
-                                LS2 is QueenRow + QueenCol,
-                                LS1 =\= LS2,
+                                abs(QueenRow - OtherQueenRow) =\= abs(QueenCol - OtherQueenCol),
                                 Q1 is OtherQueenRow + 1,
                                 check_is_attacked(QueenRow, QueenCol, Q1, XS).
 
-check_is_attacked(QueenRow, QueenCol, OtherQueenRow, [_ | XS]) :- 
-                                QueenRow = OtherQueenRow,
+check_is_attacked(QueenRow, QueenCol, QueenRow, [_ | XS]) :- 
                                 Q1 is QueenRow + 1,
                                 check_is_attacked(QueenRow, QueenCol, Q1, XS).
-
-
 
 check_ints(_, []).
 check_ints(N, [X | XS]) :- N1 is N-1, between(0, N1, X), check_ints(N, XS).
